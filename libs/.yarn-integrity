@@ -7,11 +7,13 @@
   "linkedModules": [],
   "topLevelPatterns": [
     "bootstrap@^4.5.0",
-    "jquery@^3.5.1"
+    "jquery@^3.5.1",
+    "tabulator-tables@^4.6.3"
   ],
   "lockfileEntries": {
     "bootstrap@^4.5.0": "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.5.0.tgz#97d9dbcb5a8972f8722c9962483543b907d9b9ec",
-    "jquery@^3.5.1": "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
+    "jquery@^3.5.1": "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5",
+    "tabulator-tables@^4.6.3": "https://registry.yarnpkg.com/tabulator-tables/-/tabulator-tables-4.6.3.tgz#3f85b7058b5faa0d55dc07e9d09214a532260650"
   },
   "files": [],
   "artifacts": {}
