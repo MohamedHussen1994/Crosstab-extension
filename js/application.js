@@ -20,16 +20,29 @@
     var worksheet=worksheets.find(function (sheet) {
       return sheet.name===worksheetName;
     });
-    worksheet.getUnderlyingDataAsync().then(function (fulldata) {
+    worksheet.getSummaryDataAsync().then(function (summdata) {
 
       var test_data = [];
-      var worksheetData = fulldata.data;
-      for (var i=0; i<worksheetData.length; i++) {
-        test_data.push({category: worksheetData[i][0].formattedValue,
-                        value: worksheetData[i][1].formattedValue
-                      });
+      var worksheetData = summdata.data;
+      var worksheetcolumns = summdata.columns;
+      var columnsNames = [];
+
+      console.log(worksheetcolumns);
+      // get the columns names
+      for (var m=0; m<worksheetcolumns.length; m++){
+        columnsNames.push(worksheetcolumns[m].fieldName);
       }
-      console.log(worksheetData);
+
+      console.log(summdata);
+      for (var i=0; i<worksheetData.length; i++) {
+        var temp = {};
+        for (var j=0; j<columnsNames.length; j++){
+          //test_data.push({category: worksheetData[i][j].formattedValue}); 
+          temp[columnsNames[j]] = worksheetData[i][j].formattedValue;
+        }
+        test_data.push(temp);
+      }
+      console.log(test_data);
 
       //create Tabulator on DOM element with id "example-table"
       var table = new Tabulator("#example-table", {
@@ -37,10 +50,15 @@
       data:test_data, //assign data to table
       //layout:"fitColumns", //fit columns to width of table (optional)
       resizableColumns:false, // this option takes a boolean value (default = true)
-      columns:[ //Define Table Columns
-          {title:"region", field:"category", frozen:true},
-          {title:"sales", field:"value"},
-      ]
+      autoColumns: true,
+      //columns:[ //Define Table Columns
+        //  {title:"region", field:"category", frozen:true},
+        //  {title:"sales", field:"value"},
+        //  {title:"sales2", field:"value2"},
+        //  {title:"sales3", field:"value3"},
+        //  {title:"sales4", field:"value4"},
+        //  {title:"sales5", field:"value5"},
+      //]
     });
  
       
