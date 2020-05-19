@@ -1,0 +1,13 @@
+{
+  "name": "Crosstab-extension",
+  "version": "1.0.0",
+  "description": "build complex crosstab in tableau using extensions api",
+  "main": "index.js",
+  "repository": "https://github.com/MohamedHussen1994/Crosstab-extension.git",
+  "author": "Mohammed Hussen <mohamedhussen1994@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1"
+  }
+}
