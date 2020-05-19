@@ -9,16 +9,15 @@ var tabledata = [
 
 //create Tabulator on DOM element with id "example-table"
 var table = new Tabulator("#example-table", {
-    height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+    height:300, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
     data:tabledata, //assign data to table
-    layout:"fitColumns", //fit columns to width of table (optional)
+    //layout:"fitColumns", //fit columns to width of table (optional)
+    resizableColumns:false, // this option takes a boolean value (default = true)
     columns:[ //Define Table Columns
-        {title:"Name", field:"name", width:150},
+        {title:"id", field:"id", frozen:true},
+        {title:"Name", field:"name"},
         {title:"Age", field:"age", hozAlign:"left", formatter:"progress"},
         {title:"Favourite Color", field:"col"},
         {title:"Date Of Birth", field:"dob", sorter:"date", hozAlign:"center"},
-    ],
-    rowClick:function(e, row){ //trigger an alert message when the row is clicked
-        alert("Row " + row.getData().id + " Clicked!!!!");
-    },
+    ]
 });
