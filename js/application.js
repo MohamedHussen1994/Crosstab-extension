@@ -49,16 +49,14 @@
       height:300, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
       data:test_data, //assign data to table
       //layout:"fitColumns", //fit columns to width of table (optional)
-      resizableColumns:false, // this option takes a boolean value (default = true)
       autoColumns: true,
-      //columns:[ //Define Table Columns
-        //  {title:"region", field:"category", frozen:true},
-        //  {title:"sales", field:"value"},
-        //  {title:"sales2", field:"value2"},
-        //  {title:"sales3", field:"value3"},
-        //  {title:"sales4", field:"value4"},
-        //  {title:"sales5", field:"value5"},
-      //]
+      resizableColumns:true, // this option takes a boolean value (default = true)
+      movableColumns: true, //Allow users to move and reorder columns 
+      movableRows: true, //Allow users to move and reorder rows.
+      headerSort: true, //Enable or disable header sorting on all columns. (default = true)
+      persistentLayout: false, //Enable persistsnt storage of column layout information (default = false)
+      pagination:"local",
+      paginationSizeSelector:[2,4,6,8], // you can set it to ture instead if you want to auto select the list elements
     });
  
       
