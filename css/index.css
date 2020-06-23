@@ -1,4 +1,7 @@
-
+#title {
+    font-size: 30px;
+    font-weight: bold;
+}
 .tabulator-row .tabulator-cell{
     height: 30px;
 }

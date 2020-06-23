@@ -11,14 +11,48 @@
                 <small style="color: #bab0ac;"> Settings</small>
             </h4>
         </div>
+
         <div class="row">
                 <div class="col-md-6 col-xs-6">
-                    <span class="dropdown-label">Worksheet Data Source: </span>
+                    <span class="dropdown-label">Worksheet Data Source:&nbsp;</span>
                     <select id="selectWorksheet" class="select">
                         <option disabled selected="selected">-- None Selected --</option>
                     </select>
                 </div>
         </div>
+        <!-- enter report title section -->
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span>Report Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <input type="text" id="report-title" value="Title">
+                <br><br>
+                <span>Report Height (in px):&nbsp;</span>
+                <input type="number" id="report-height" value="300">
+            </div>
+        </div>
+        <div class="row">
+            <h6 style="color: #323233; "><strong>Formatting options:</strong></h6>
+        </div>
+        <!-- select table background color -->
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span>Header color:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <input type="color" id="header-color"> &nbsp;&nbsp;&nbsp;&nbsp;
+                <span>Font Color:&nbsp;&nbsp;</span>
+                <input type="color" id="header-font-color">
+                <br><br>
+                <span>Even Rows color:&nbsp;</span>
+                <input type="color" id="even-color"> &nbsp;&nbsp;&nbsp;&nbsp;
+                <span>Font Color:&nbsp;&nbsp;</span>
+                <input type="color" id="even-font-color">
+                <br><br>
+                <span>Odd Rows color:&nbsp;</span>
+                <input type="color" id="odd-color"> &nbsp;&nbsp;&nbsp;&nbsp;
+                <span>Font Color:&nbsp;&nbsp;</span>
+                <input type="color" id="odd-font-color">
+            </div>
+        </div>
+        <!-- save and cancel buttons -->
         <div class="row dialog-buttons">
             <span id="error"></span>
             <button id="save" class="btn btn-success">Save</button>
