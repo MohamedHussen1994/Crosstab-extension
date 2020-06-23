@@ -1,3 +1,4 @@
+
 .tabulator-row .tabulator-cell{
     height: 30px;
 }
@@ -27,6 +28,10 @@
 
 #download-csv:hover, #download-xlsx:hover, #download-pdf:hover{
 	border-color: rgb(255,255,255,1);
+}
+
+.tabulator .tabulator-header {
+	background-color: #fff;
 }
 
 .tabulator{
