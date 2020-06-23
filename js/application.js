@@ -64,7 +64,7 @@
       headerSort: true, //Enable or disable header sorting on all columns. (default = true)
       //persistentLayout: false, //Enable persistsnt storage of column layout information (default = false)
       pagination:"local",
-      paginationSizeSelector:true, // you can set it to ture instead if you want to auto select the list elements
+      //paginationSizeSelector:true, // you can set it to ture instead if you want to auto select the list elements
       // using callback to handle styling on the table
       renderComplete:function(){
         var header_color = tableau.extensions.settings.get("header_color");
