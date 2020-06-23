@@ -54,10 +54,13 @@
       // preparing the columns to be injected in the tabulator constractor
       var columnsDef = []
       for (var key in test_data[0]){
-          console.log(key);
-          var element = {title: key, field: key , headerDblClick:function(e, column){column.updateDefinition({editableTitle:true});}};
+          //console.log(key);
+          var element = {title: key, field: key , visible: true, 
+                         headerDblClick:function(e, column){column.updateDefinition({editableTitle:true})},
+                         headerContext:function(e, column){column.updateDefinition({visible:false})},};
           columnsDef.push(element);
       };
+
       //create Tabulator on DOM element with id "example-table"
       var table = new Tabulator("#example-table", {
       height: report_height, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
@@ -70,11 +73,14 @@
       movableRows: true, //Allow users to move and reorder rows.
       headerSort: true, //Enable or disable header sorting on all columns. (default = true)
       //persistentLayout: false, //Enable persistsnt storage of column layout information (default = false)
+      persistence:{columns: ["visible", "title"]},
       pagination:"local",
       //paginationSizeSelector:true, // you can set it to ture instead if you want to auto select the list elements
       // using callback to handle the renaming 
       columnTitleChanged:function(column){
         //column - the column component for the changed column
+        var header_color = tableau.extensions.settings.get("header_color");
+        var header_font_color = tableau.extensions.settings.get("header_font_color");
         var x = document.getElementsByClassName("tabulator-col-content");
         var i;
         for (i = 0; i < x.length; i++) {
