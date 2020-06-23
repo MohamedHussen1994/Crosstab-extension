@@ -93,6 +93,12 @@
           x[i].style.backgroundColor = header_color;
           x[i].style.color = header_font_color;
         };
+        var x = document.getElementsByClassName("tabulator-title-editor");
+        var i;
+        for (i = 0; i < x.length; i++) {
+          x[i].style.backgroundColor = header_color;
+          x[i].style.color = header_font_color;
+        };
         // chaning the background color of the even rows
         var x = document.getElementsByClassName("tabulator-row-even");
         var i;
