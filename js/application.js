@@ -51,20 +51,27 @@
         test_data.push(temp);
       }
       //console.log(test_data);
-
+      // preparing the columns to be injected in the tabulator constractor
+      var columnsDef = []
+      for (var key in test_data[0]){
+          console.log(key);
+          var element = {title: key, field: key , headerDblClick:function(e, column){column.updateDefinition({editableTitle:true});}};
+          columnsDef.push(element);
+      };
       //create Tabulator on DOM element with id "example-table"
       var table = new Tabulator("#example-table", {
       height: report_height, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
       data:test_data, //assign data to table
+      columns: columnsDef,
       //layout:"fitColumns", //fit columns to width of table (optional)
-      autoColumns: true,
+      //autoColumns: true,
       resizableColumns: true, // this option takes a boolean value (default = true)
       movableColumns: true, //Allow users to move and reorder columns 
       movableRows: true, //Allow users to move and reorder rows.
       headerSort: true, //Enable or disable header sorting on all columns. (default = true)
       //persistentLayout: false, //Enable persistsnt storage of column layout information (default = false)
       pagination:"local",
-      //paginationSizeSelector:true, // you can set it to ture instead if you want to auto select the list elements
+      paginationSizeSelector:true, // you can set it to ture instead if you want to auto select the list elements
       // using callback to handle styling on the table
       renderComplete:function(){
         var header_color = tableau.extensions.settings.get("header_color");
