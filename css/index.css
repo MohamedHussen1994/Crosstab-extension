@@ -43,7 +43,7 @@
 
 .tabulator .tabulator-header .tabulator-col	{
 	background-color: #fff;
-	color: #ff0000;
+	color: #000;
 }
 
 .tabulator-row.tabulator-row-odd {
@@ -58,5 +58,5 @@
 /*for formating the input element in the header title*/
 .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title .tabulator-title-editor{
 	border: 1px solid #fff;
-	color: #ff0000;
+	color: #000;
 }
