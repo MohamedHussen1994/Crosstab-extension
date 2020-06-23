@@ -64,6 +64,25 @@
       
     });
   }
+
+  //trigger download of data.csv file
+  document.getElementById("download-csv").addEventListener("click", function(){
+    table.download("csv", "data.csv");
+  });
+
+
+  //trigger download of data.xlsx file
+  document.getElementById("download-xlsx").addEventListener("click", function(){
+    table.download("xlsx", "data.xlsx", {sheetName:"My Data"});
+  });
+
+  //trigger download of data.pdf file
+  document.getElementById("download-pdf").addEventListener("click", function(){
+    table.download("pdf", "data.pdf", {
+        orientation:"portrait", //set page orientation to portrait
+        title:"Example Report", //add title to report
+    });
+  });
  
   function configure() {
     const popupUrl=`${window.location.href}/dialog.html`;
