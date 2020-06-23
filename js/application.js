@@ -75,6 +75,12 @@
       // using callback to handle the renaming 
       columnTitleChanged:function(column){
         //column - the column component for the changed column
+        var x = document.getElementsByClassName("tabulator-col-content");
+        var i;
+        for (i = 0; i < x.length; i++) {
+          x[i].style.backgroundColor = header_color;
+          x[i].style.color = header_font_color;
+        };
         column.updateDefinition({editableTitle:false}); //change the column title
       },
       // using callback to handle styling on the table
@@ -88,12 +94,6 @@
         
         // change the background color of the header
         var x = document.getElementsByClassName("tabulator-col");
-        var i;
-        for (i = 0; i < x.length; i++) {
-          x[i].style.backgroundColor = header_color;
-          x[i].style.color = header_font_color;
-        };
-        var x = document.getElementsByClassName("tabulator-title-editor");
         var i;
         for (i = 0; i < x.length; i++) {
           x[i].style.backgroundColor = header_color;
