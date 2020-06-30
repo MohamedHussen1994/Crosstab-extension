@@ -135,7 +135,7 @@
       //trigger download of data.pdf file
       document.getElementById("download-pdf").addEventListener("click", function(){
         table.download("pdf", "data.pdf", {
-            orientation:"portrait", //set page orientation to portrait
+            orientation:"landscape", //set page orientation to portrait
             title:"Example Report", //add title to report
         });
       });
@@ -149,7 +149,7 @@
   function configure() {
     const popupUrl=`${window.location.href}/dialog.html`;
     let defaultPayload="";
-    tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:400, width:430 }).then((closePayload) => {
+    tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:600, width:600 }).then((closePayload) => {
       drawChartJS();
     }).catch((error) => {
       switch (error.errorCode) {

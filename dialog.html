@@ -1,64 +1,84 @@
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/dialog.css">
 </head>
 <body>
-    <div class="container">
-        <div class="page-header">
-            <img src="img/newlogo.png">
-            <h4 style="color: #2799d3;">Table Report Creator /
-                <small style="color: #bab0ac;"> Settings</small>
-            </h4>
-        </div>
+<div class="container">
+    <div class="page-header">
+        <img src="img/newlogo.png">
+        <h4 style="color: #2799d3;">Table Report Creator /
+            <small style="color: #bab0ac;"> Settings</small>
+        </h4>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Select Sheet</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile" aria-selected="false">Select Columns</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#menu2" role="tab" aria-controls="contact" aria-selected="false">Formatting</a>
+        </li>
+    </ul>
 
-        <div class="row">
-                <div class="col-md-6 col-xs-6">
-                    <span class="dropdown-label">Worksheet Data Source:&nbsp;</span>
-                    <select id="selectWorksheet" class="select">
-                        <option disabled selected="selected">-- None Selected --</option>
-                    </select>
-                </div>
+    <div class="tab-content">
+    <div id="home" class="tab-pane fade show active">
+      <div class="row">
+        <div class="col">
+            <span class="dropdown-label">Worksheet Data Source:&nbsp;</span>
+            <select id="selectWorksheet" class="select">
+                <option disabled selected="selected">-- None Selected --</option>
+            </select>
+            <br><br>
+            <!-- enter report title section -->
+            <span>Report Title:&nbsp;</span>
+            <input type="text" id="report-title" value="Title">
+            <br><br>
+            <span>Report Height (in px):&nbsp;</span>
+            <input type="number" id="report-height" value="300">
         </div>
-        <!-- enter report title section -->
+      </div>
+    </div>
+
+    <div id="menu1" class="tab-pane fade">
         <div class="row">
-            <div class="col-md-6 col-xs-6">
-                <span>Report Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <input type="text" id="report-title" value="Title">
-                <br><br>
-                <span>Report Height (in px):&nbsp;</span>
-                <input type="number" id="report-height" value="300">
+            <div class="col">
+                <p>To be Made</p>
             </div>
         </div>
+    </div>
+
+    <div id="menu2" class="tab-pane fade">
+      <!-- select table background color -->
         <div class="row">
-            <h6 style="color: #323233; "><strong>Formatting options:</strong></h6>
-        </div>
-        <!-- select table background color -->
-        <div class="row">
-            <div class="col-md-6 col-xs-6">
-                <span>Header color:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="col">
+                <span>Header color:&nbsp;</span>
                 <input type="color" id="header-color" value="#bab0ac"> &nbsp;&nbsp;&nbsp;&nbsp;
-                <span>Font Color:&nbsp;&nbsp;</span>
+                <span>Font Color:&nbsp;</span>
                 <input type="color" id="header-font-color">
                 <br><br>
                 <span>Even Rows color:&nbsp;</span>
                 <input type="color" id="even-color" value="#ffffff"> &nbsp;&nbsp;&nbsp;&nbsp;
-                <span>Font Color:&nbsp;&nbsp;</span>
+                <span>Font Color:&nbsp;</span>
                 <input type="color" id="even-font-color">
                 <br><br>
                 <span>Odd Rows color:&nbsp;</span>
                 <input type="color" id="odd-color" value="#d6d6d6"> &nbsp;&nbsp;&nbsp;&nbsp;
-                <span>Font Color:&nbsp;&nbsp;</span>
+                <span>Font Color:&nbsp;</span>
                 <input type="color" id="odd-font-color">
             </div>
         </div>
-        <!-- save and cancel buttons -->
-        <div class="row dialog-buttons">
-            <span id="error"></span>
-            <button id="save" class="btn btn-success">Save</button>
-            <button id="cancel" class="btn btn-danger">Cancel</button>
-        </div>
     </div>
+    </div>
+   <!-- save and cancel buttons -->
+    <div class="row dialog-buttons">
+        <span id="error"></span>
+        <button id="save" class="btn btn-success">Save</button>
+        <button id="cancel" class="btn btn-danger">Cancel</button>
+    </div>
+</div>
 </body>
 <script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
