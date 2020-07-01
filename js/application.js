@@ -18,7 +18,7 @@
     var report_title = tableau.extensions.settings.get("report_title");
     // adding report tilte
     $("#title").html(report_title);
-    console.log(report_title);
+    //console.log(report_title);
     // getting the report height that the user enter in the config window
     var report_height = tableau.extensions.settings.get("report_height");
     // getting the worksheet name that the user choose from the config window
@@ -97,6 +97,8 @@
         var even_font_color = tableau.extensions.settings.get("even_font_color");
         var odd_color = tableau.extensions.settings.get("odd_color");
         var odd_font_color = tableau.extensions.settings.get("odd_font_color");
+        var checkbox = tableau.extensions.settings.get("checkbox");
+        console.log(checkbox);
         
         // change the background color of the header
         var x = document.getElementsByClassName("tabulator-col");
@@ -129,14 +131,14 @@
 
       //trigger download of data.xlsx file
       document.getElementById("download-xlsx").addEventListener("click", function(){
-        table.download("xlsx", "data.xlsx", {sheetName:"My Data"});
+        table.download("xlsx", "data.xlsx", {sheetName:report_title});
       });
 
       //trigger download of data.pdf file
       document.getElementById("download-pdf").addEventListener("click", function(){
         table.download("pdf", "data.pdf", {
             orientation:"landscape", //set page orientation to portrait
-            title:"Example Report", //add title to report
+            title:report_title, //add title to report
         });
       });
       

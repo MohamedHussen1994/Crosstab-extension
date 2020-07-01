@@ -22,7 +22,9 @@
         var odd_font_color = tableau.extensions.settings.get("odd_font_color");
         var report_title = tableau.extensions.settings.get("report_title");
         var report_height = tableau.extensions.settings.get("report_height");
-        //$("#SelectChartType").val(tableau.extensions.settings.get("ChartType"));
+        var checkbox = tableau.extensions.settings.get("checkbox");
+
+
         if (worksheetName != undefined) {
             // if the worksheet name already exit save it the config page
             $("#selectWorksheet").val(worksheetName);
@@ -34,6 +36,8 @@
             $("#odd-font-color").val(odd_font_color);
             $("#report-title").val(report_title);
             $("#report-height").val(report_height);
+            // I used this form (checkbox == 'true') to convert the checkbox variable from string to boolean
+            $("#col2").prop('checked', checkbox == 'true');
             columnsUpdate();
         }
  
@@ -42,7 +46,6 @@
         });
         $('#cancel').click(closeDialog);
         $('#save').click(saveButton);
-        $('.select').select2();
     }
  
     function columnsUpdate() {
@@ -77,8 +80,10 @@
         // saving report title
         tableau.extensions.settings.set("report_title", $("#report-title").val());
         // saving report height
-        tableau.extensions.settings.set("report_height", $("#report-height").val())
-        
+        tableau.extensions.settings.set("report_height", $("#report-height").val());
+        // saving the checkbox value
+        tableau.extensions.settings.set("checkbox", $("#col2").is(":checked"));
+
         tableau.extensions.settings.saveAsync().then((currentSettings) => {
             tableau.extensions.ui.closeDialog("10");
         });
