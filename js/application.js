@@ -97,8 +97,6 @@
         var even_font_color = tableau.extensions.settings.get("even_font_color");
         var odd_color = tableau.extensions.settings.get("odd_color");
         var odd_font_color = tableau.extensions.settings.get("odd_font_color");
-        var checkbox = tableau.extensions.settings.get("checkbox");
-        console.log(checkbox);
         
         // change the background color of the header
         var x = document.getElementsByClassName("tabulator-col");
