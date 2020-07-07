@@ -22,8 +22,7 @@
         var odd_font_color = tableau.extensions.settings.get("odd_font_color");
         var report_title = tableau.extensions.settings.get("report_title");
         var report_height = tableau.extensions.settings.get("report_height");
-        var checkbox = tableau.extensions.settings.get("checkbox");
-
+        //var checkbox = tableau.extensions.settings.get("checkbox");
 
         if (worksheetName != undefined) {
             // if the worksheet name already exit save it the config page
@@ -36,9 +35,8 @@
             $("#odd-font-color").val(odd_font_color);
             $("#report-title").val(report_title);
             $("#report-height").val(report_height);
-            // I used this form (checkbox == 'true') to convert the checkbox variable from string to boolean
-            $("#col2").prop('checked', checkbox == 'true');
             columnsUpdate();
+             
         }
  
         $('#selectWorksheet').on('change', '', function (e) {
@@ -49,13 +47,42 @@
     }
  
     function columnsUpdate() {
-
         var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
         var worksheetName = $("#selectWorksheet").val();
         
         var worksheet = worksheets.find(function (sheet) {
             return sheet.name === worksheetName;
-        });      
+        });
+
+        worksheet.getSummaryDataAsync().then(function (summdata) {
+
+            var worksheetcolumns = summdata.columns;
+            //var columnsNames = []
+            for (var m=0; m<worksheetcolumns.length; m++){
+                $("#columns").append("<tr class='select-item'><td><span>" + worksheetcolumns[m].fieldName + "&nbsp;</span></td>"+
+                     "<td><input class = 'input-text' type='text' value =" + worksheetcolumns[m].fieldName + ">&nbsp;</td>"+
+                     "<td><input class='input-checkbox' type='checkbox' checked></td></tr>");
+                //columnsNames.push(worksheetcolumns[m].fieldName);
+            };
+            columnsNameUpdate(); 
+            //tableau.extensions.settings.set("columnsNames", columnsNames.toString()); 
+          });
+            
+    }
+    function columnsNameUpdate(){
+        var worksheetName = tableau.extensions.settings.get("worksheet");
+        // using the split method to convert the string back to array
+        var columnsVisiable = tableau.extensions.settings.get("columnsVisiable").split(',');
+        var columnsNewNames = tableau.extensions.settings.get("columnsNewNames").split(',');
+        var i = 0;
+        if (worksheetName != undefined) {
+            $("tr.select-item").each(function() {
+                $(this).find("input.input-text").val(columnsNewNames[i]);
+                // I used this form (checkbox == 'true') to convert the checkbox variable from string to boolean
+                $(this).find("input.input-checkbox").prop('checked', columnsVisiable[i] == 'true');
+                i = i + 1; 
+            });
+        }
     }
  
     function closeDialog() {
@@ -81,8 +108,17 @@
         tableau.extensions.settings.set("report_title", $("#report-title").val());
         // saving report height
         tableau.extensions.settings.set("report_height", $("#report-height").val());
-        // saving the checkbox value
-        tableau.extensions.settings.set("checkbox", $("#col2").is(":checked"));
+        // saving the user choices in the columns names section in the configuration
+        var columnsNewNames = [];
+        var columnsVisiable = [];
+        $("tr.select-item").each(function() {
+            columnsNewNames.push($(this).find("input.input-text").val());
+            // == 'true' is used here to change the datatype from string to boolean
+            columnsVisiable.push($(this).find("input.input-checkbox").is(":checked"));
+        });
+        // using toString method to convert the array to string before saving it because set method accept only string values not array
+        tableau.extensions.settings.set("columnsNewNames", columnsNewNames.toString());
+        tableau.extensions.settings.set("columnsVisiable", columnsVisiable.toString());
 
         tableau.extensions.settings.saveAsync().then((currentSettings) => {
             tableau.extensions.ui.closeDialog("10");

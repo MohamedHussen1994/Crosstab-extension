@@ -27,28 +27,41 @@
     <div id="home" class="tab-pane fade show active">
       <div class="row">
         <div class="col">
-            <span class="dropdown-label">Worksheet Data Source:&nbsp;</span>
-            <select id="selectWorksheet" class="select">
-                <option disabled selected="selected">-- None Selected --</option>
-            </select>
-            <br><br>
-            <!-- enter report title section -->
-            <span>Report Title:&nbsp;</span>
-            <input type="text" id="report-title" value="Title">
-            <br><br>
-            <span>Report Height (in px):&nbsp;</span>
-            <input type="number" id="report-height" value="300">
+            <table class="table">
+                <!-- select worksheet name -->
+                <tr>
+                    <td><span class="dropdown-label">Worksheet Data Source:&nbsp;</span></td>
+                    <td>
+                        <select id="selectWorksheet" class="select">
+                            <option disabled selected="selected">-- None Selected --</option>
+                        </select>
+                    </td>
+                </tr>
+                <!-- enter report title section -->
+                <tr>
+                    <td><span>Report Title:&nbsp;</span></td>
+                    <td><input type="text" id="report-title" value="Title"></td>
+                </tr>
+                <!-- enter report hight section -->
+                <tr>
+                    <td><span>Report Height (in px):&nbsp;</span></td>
+                    <td><input type="number" id="report-height" value="300"></td>
+                </tr>
+            </table>
         </div>
       </div>
     </div>
 
     <div id="menu1" class="tab-pane fade">
         <div class="row">
-            <div class="col" id="columns">
-                <span>Col name&nbsp;</span>
-                <input type="text" id="col1" value="col name">&nbsp;
-                <input type="checkbox" id="col2" checked>
-                <br><br>
+            <div class="col">
+                <table class="table" id="columns">  
+                    <tr>
+                        <th>Column Name</th>
+                        <th>Rename</th>
+                        <th>Show/Hide</th>
+                      </tr>              
+                </table>
             </div>
         </div>
     </div>
@@ -57,20 +70,26 @@
       <!-- select table background color -->
         <div class="row">
             <div class="col">
-                <span>Header color:&nbsp;</span>
-                <input type="color" id="header-color" value="#bab0ac"> &nbsp;&nbsp;&nbsp;&nbsp;
-                <span>Font Color:&nbsp;</span>
-                <input type="color" id="header-font-color">
-                <br><br>
-                <span>Even Rows color:&nbsp;</span>
-                <input type="color" id="even-color" value="#ffffff"> &nbsp;&nbsp;&nbsp;&nbsp;
-                <span>Font Color:&nbsp;</span>
-                <input type="color" id="even-font-color">
-                <br><br>
-                <span>Odd Rows color:&nbsp;</span>
-                <input type="color" id="odd-color" value="#d6d6d6"> &nbsp;&nbsp;&nbsp;&nbsp;
-                <span>Font Color:&nbsp;</span>
-                <input type="color" id="odd-font-color">
+                <table class="table">
+                    <tr>
+                        <td><span>Header color:&nbsp;</span></td>
+                        <td><input type="color" id="header-color" value="#bab0ac"></td>
+                        <td><span>Font Color:&nbsp;</span></td>
+                        <td><input type="color" id="header-font-color"></td>
+                    </tr>
+                    <tr>
+                        <td><span>Even Rows color:&nbsp;</span></td>
+                        <td><input type="color" id="even-color" value="#ffffff"></td>
+                        <td><span>Font Color:&nbsp;</span></td>
+                        <td><input type="color" id="even-font-color"></td>
+                    </tr>
+                    <tr>
+                        <td><span>Odd Rows color:&nbsp;</span></td>
+                        <td><input type="color" id="odd-color" value="#d6d6d6"></td>
+                        <td><span>Font Color:&nbsp;</span></td>
+                        <td><input type="color" id="odd-font-color"></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
