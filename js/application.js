@@ -60,9 +60,9 @@
                       };
         columnsDef.push(element);
       };
-      var table 
+
       //create Tabulator on DOM element with id "example-table"
-      table = new Tabulator("#example-table", {
+      var table = new Tabulator("#example-table", {
       height: report_height, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
       data:test_data, //assign data to table
       columns: columnsDef,
@@ -111,6 +111,7 @@
       //trigger download of data.csv file
       $('#download-csv').click(function() {
         table.download("csv", "data.csv");
+        console.log(typeof(table));
       });
 
       //trigger download of data.xlsx file
@@ -126,6 +127,8 @@
         });
       });
       console.log(table);
+      console.log(typeof(table));
+      console.log(table.length)
     });
   };
 
